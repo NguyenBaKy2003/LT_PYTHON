@@ -21,7 +21,6 @@ try:
             conn.rollback()
             print("Loi", e)
         choise = int(input("Nhap 0 neu muon dung: "))
-        
         if choise ==0:
             break
         

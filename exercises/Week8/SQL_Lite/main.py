@@ -9,6 +9,7 @@ conn.execute("PRAGMA foreign_keys = ON")
 print("Ket noi thanh cong")
 
 conn.executescript("""
+
     CREATE TABLE IF NOT EXISTS khach_hang (
         MaKH INTEGER PRIMARY KEY AUTOINCREMENT,
         TenCongTy TEXT NOT NULL,
@@ -19,18 +20,19 @@ conn.executescript("""
         Fax TEXT NOT NULL
     );
 
+   
     CREATE TABLE IF NOT EXISTS nhan_vien (
         MaNV INTEGER PRIMARY KEY AUTOINCREMENT,
         Ho TEXT NOT NULL,
         Ten TEXT NOT NULL,
-        NgaySinh TEXT CHECK (
-            NgaySinh IS NULL OR NgaySinh < date('now')
-        ),
+        NgaySinh TEXT,
         NgayLamViec TEXT,
         DiaChi TEXT NOT NULL,
         LuongCoBan REAL NOT NULL CHECK (LuongCoBan > 0),
         PhuCap REAL CHECK (PhuCap >= 0)
     );
+
+
 
     CREATE TABLE IF NOT EXISTS loai_hang (
         MaLoaiHang INTEGER PRIMARY KEY AUTOINCREMENT,
